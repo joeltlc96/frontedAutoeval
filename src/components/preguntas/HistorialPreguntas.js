@@ -1,23 +1,34 @@
-import React from 'react'
-import { Box, Typography, List, ListItem, ListItemText } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { Box, Typography, List, ListItem, ListItemText, Divider } from '@mui/material'
+import { obtenerHistorial } from '../../api'
 
 export default function HistorialPreguntas () {
-  const historial = [
-    { pregunta: '¿Qué es una variable en JavaScript?', respuesta: 'Una caja donde guardas datos.' },
-    { pregunta: '¿Para qué sirve React?', respuesta: 'Para construir interfaces web modernas.' }
-  ]
+  const [historial, setHistorial] = useState([])
+
+  useEffect(() => {
+    const fetchHistorial = async () => {
+      const data = await obtenerHistorial()
+      setHistorial(data)
+    }
+    fetchHistorial()
+  }, [])
 
   return (
     <Box>
-      <Typography variant="h5" gutterBottom>Historial de Preguntas</Typography>
+      <Typography variant='h6' gutterBottom>
+        Historial de Preguntas
+      </Typography>
       <List>
         {historial.map((item, index) => (
-          <ListItem key={index}>
-            <ListItemText
-              primary={`🧠 ${item.pregunta}`}
-              secondary={`📌 Respuesta: ${item.respuesta}`}
-            />
-          </ListItem>
+          <Box key={index}>
+            <ListItem alignItems='flex-start'>
+              <ListItemText
+                primary={`Pregunta: ${item.pregunta}`}
+                secondary={`Respuesta: ${item.respuesta}`}
+              />
+            </ListItem>
+            <Divider />
+          </Box>
         ))}
       </List>
     </Box>

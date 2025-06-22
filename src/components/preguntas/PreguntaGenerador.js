@@ -1,20 +1,39 @@
-import React from 'react'
-import { Box, Typography, Button } from '@mui/material'
+import React, { useState } from 'react'
+import { Box, TextField, Button, Typography } from '@mui/material'
+import { generarPregunta } from '../../api'
 
 export default function PreguntaGenerador () {
-  const generarPregunta = () => {
-    alert('⚡ Aquí se generaría una pregunta con ChatGPT!')
+  const [tema, setTema] = useState('')
+  const [pregunta, setPregunta] = useState('')
+
+  const handleGenerar = async () => {
+    if (!tema) return
+    const respuesta = await generarPregunta(tema)
+    setPregunta(respuesta.pregunta || 'No se pudo generar una pregunta.')
   }
 
   return (
-    <Box textAlign="center">
-      <Typography variant="h5" gutterBottom>Generador de Preguntas</Typography>
-      <Typography variant="body1" mb={3}>
-        Haz clic para generar una nueva pregunta basada en el tema seleccionado.
+    <Box>
+      <Typography variant='h6' gutterBottom>
+        Escribe un tema y genera una pregunta
       </Typography>
-      <Button variant="contained" color="secondary" onClick={generarPregunta}>
+      <TextField
+        fullWidth
+        label='Tema'
+        variant='outlined'
+        value={tema}
+        onChange={(e) => setTema(e.target.value)}
+        sx={{ mb: 2 }}
+      />
+      <Button variant='contained' color='primary' onClick={handleGenerar}>
         Generar Pregunta
       </Button>
+      {pregunta && (
+        <Box mt={3}>
+          <Typography variant='subtitle1'>Pregunta generada:</Typography>
+          <Typography variant='body1'>{pregunta}</Typography>
+        </Box>
+      )}
     </Box>
   )
 }
