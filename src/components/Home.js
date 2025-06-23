@@ -7,6 +7,7 @@ export default function Home () {
   const navigate = useNavigate()
 
   return (
+<<<<<<< HEAD
     <Box
       sx={{
         minHeight: '100vh',
@@ -14,6 +15,9 @@ export default function Home () {
         background: 'linear-gradient(to bottom right, #e3f2fd, #fff)'
       }}
     >
+=======
+    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', pt: 10 }}>
+>>>>>>> 6132b72939e3ff1cb146e10c9eacf589269788ea
       <Container maxWidth='sm' sx={{ textAlign: 'center' }}>
         <Box component='img' src={logo} alt='ISTLC Logo' sx={{ width: 90, mb: 2 }} />
         <Typography variant='h3' gutterBottom>

@@ -1,19 +1,5 @@
-import React, { useState } from 'react'
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Box,
-  useMediaQuery
-} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+import React from 'react'
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from '@mui/material/styles'
 
@@ -39,27 +25,16 @@ export default function NavBar () {
       ]
 
   return (
-    <>
-      <AppBar position='static' color='primary'>
-        <Toolbar>
-          {isMobile && (
-            <IconButton
-              color='inherit'
-              edge='start'
-              onClick={() => setOpen(true)}
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-          <Typography variant='h6' sx={{ flexGrow: 1 }}>
-            <Button
-              color='inherit'
-              component={Link}
-              to='/'
-              sx={{ textTransform: 'none' }}
-            >
-              AutoEval ✍️
+    <AppBar position='static'>
+      <Toolbar>
+        <Typography variant='h6' sx={{ flexGrow: 1 }}>
+          AutoEval ✍️
+        </Typography>
+
+        {!token ? (
+          <>
+            <Button color='inherit' component={Link} to='/login'>
+              Iniciar sesión
             </Button>
           </Typography>
 
