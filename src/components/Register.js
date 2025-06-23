@@ -4,7 +4,7 @@ import PreguntaGenerador from './preguntas/PreguntaGenerador'
 import RespuestaForm from './preguntas/RespuestaForm'
 import HistorialPreguntas from './preguntas/HistorialPreguntas'
 
-export default function PreguntaDinamica () {
+export default function Register () {
   const [tab, setTab] = useState(0)
 
   const handleChange = (event, newValue) => {
