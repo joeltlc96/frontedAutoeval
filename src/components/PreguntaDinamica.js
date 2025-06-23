@@ -12,7 +12,7 @@ export default function PreguntasDinamicas () {
   }
 
   return (
-    <Box sx={{ bgcolor: '#f3f4f6', minHeight: '100vh', p: 4 }}>
+    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', p: 4 }}>
       <Paper elevation={6} sx={{ maxWidth: 800, mx: 'auto', p: 3, borderRadius: 3 }}>
         <Tabs
           value={value}

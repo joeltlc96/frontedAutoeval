@@ -12,32 +12,18 @@ export default function PreguntaDinamica () {
   }
 
   return (
-    <Box
-      sx={{
-        background: 'linear-gradient(135deg, #003366, #001f3f)',
-        minHeight: '100vh',
-        padding: 4,
-        color: 'white'
-      }}
-    >
-      <Paper
-        sx={{
-          background: 'rgba(255, 255, 255, 0.1)',
-          backdropFilter: 'blur(6px)',
-          mb: 3
-        }}
-        elevation={6}
-      >
+    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', p: 4 }}>
+      <Paper sx={{ mb: 3 }} elevation={6}>
         <Tabs
           value={tab}
           onChange={handleChange}
           centered
-          textColor="secondary"
-          indicatorColor="secondary"
+          textColor='primary'
+          indicatorColor='primary'
         >
-          <Tab label="Generar Pregunta" sx={{ color: 'white' }} />
-          <Tab label="Responder" sx={{ color: 'white' }} />
-          <Tab label="Historial" sx={{ color: 'white' }} />
+          <Tab label='Generar Pregunta' />
+          <Tab label='Responder' />
+          <Tab label='Historial' />
         </Tabs>
       </Paper>
 
