@@ -15,6 +15,24 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Poppins, Roboto, sans-serif'
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+          fontWeight: 600
+        }
+      }
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12
+        }
+      }
+    }
   }
 })
 

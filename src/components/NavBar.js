@@ -71,11 +71,17 @@ export default function NavBar () {
                   component={Link}
                   to={item.to}
                   key={item.label}
+                  sx={{ textTransform: 'none' }}
                 >
                   {item.label}
                 </Button>
               ) : (
-                <Button color='inherit' onClick={item.onClick} key={item.label}>
+                <Button
+                  color='inherit'
+                  onClick={item.onClick}
+                  key={item.label}
+                  sx={{ textTransform: 'none' }}
+                >
                   {item.label}
                 </Button>
               )
